@@ -1,0 +1,1 @@
+export type GetCollectionItemType<T> = T extends (infer U)[] ? U : never;

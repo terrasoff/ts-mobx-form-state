@@ -1,0 +1,49 @@
+{
+  "name": "ts-mobx-form-state",
+  "version": "0.0.26",
+  "description": "The javascript Library written with mobx and typescript which helps you to handle a form state.",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src/ tests/ --ext ts --fix",
+    "test": "jest"
+  },
+  "author": "Konstantin Tarasov",
+  "files": [
+    "build",
+    "README.md"
+  ],
+  "homepage": "https://bitbucket.org/terrasoff/ts-mobx-form-state",
+  "bugs": {
+    "url": "https://bitbucket.org/terrasoff/ts-mobx-form-state"
+  },
+  "keywords": [
+    "mobx",
+    "typescript",
+    "form",
+    "forms",
+    "state",
+    "state management",
+    "model"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "@typescript-eslint/eslint-plugin": "2.3.3",
+    "@typescript-eslint/parser": "2.19.2",
+    "eslint": "6.8.0",
+    "jest": "^25.2.1",
+    "mobx": "5.10.1",
+    "ts-jest": "25.2.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "3.9.2"
+  },
+  "dependencies": {
+    "exports-loader": "0.7.0",
+    "module-alias": "^2.2.2"
+  },
+  "_moduleAliases": {
+    "@src": "src"
+  }
+}
