@@ -115,3 +115,13 @@ test('Check set error', () => {
   expect(fieldset.hasError).toBeTruthy();
   expect(fieldset.error).toMatchObject(error);
 });
+
+test('Set empty error', () => {
+  const first = 'Mobx';
+  const last = 'Form';
+  const fieldset = createFieldset(first, last);
+  const error: ValidationErrorsType<NameType> = null;
+
+  fieldset.setError(error);
+  expect(fieldset.hasError).toBeFalsy();
+});
