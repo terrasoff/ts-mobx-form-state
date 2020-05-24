@@ -21,6 +21,10 @@ export class FormCollection<T, TMeta = unknown> {
     options.items.map(this.add);
   }
 
+  public get list(): FormCollectionStore<FormFieldType<T, TMeta>> {
+    return this._items;
+  }
+
   @computed
   public get isDirty(): boolean {
     return this._items.items.some(x => x.isDirty);

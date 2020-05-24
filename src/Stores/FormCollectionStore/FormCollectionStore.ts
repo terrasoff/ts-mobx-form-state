@@ -1,5 +1,8 @@
 import { action, computed, observable, toJS } from 'mobx';
 
+/**
+ * TODO add tests.
+ */
 export class FormCollectionStore<T> {
 
   @observable
