@@ -77,7 +77,9 @@ export class FormFieldset<T extends Object, TMeta = unknown> {
 
   public setError(error: ValidationErrorsType<T>): void {
     this.resetError();
-    this.setAttributeValue('setError', error);
+    if (error) {
+      this.setAttributeValue('setError', error);
+    }
   }
 
   public resetError(): void {

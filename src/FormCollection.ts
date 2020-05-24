@@ -15,10 +15,10 @@ export class FormCollection<T, TMeta = unknown> {
 
   private readonly _factory = new FieldFactory()
 
-  constructor(options: CollectionOptionsType<T>) {
+  constructor(options: CollectionOptionsType<T> = { items: [] }) {
     this.add = this.add.bind(this);
 
-    (options.items || []).map(this.add);
+    options.items.map(this.add);
   }
 
   @computed
