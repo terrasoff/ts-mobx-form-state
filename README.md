@@ -1,4 +1,4 @@
-Yet another form state manager library written with typescript and mobx which helps:
+Yet another javascript Library written with mobx and typescript which helps you to handle a form state.
 
 * Provides strict typescript checks for your form.
  
@@ -6,9 +6,9 @@ Yet another form state manager library written with typescript and mobx which he
 
 * Provide the flexible form validation flow (client or server side). You are free to use any side validator with that library.
 
-* Allows you to add extra attributes to your input fields.
+* Allows you to add extra attributes to your input fields (like hint, warning or required).
 
-* Set form initial state with javascript model (object).
+* Control the form's state. Like initial state or check if it's dirty.
 
 Pro:
 
@@ -29,7 +29,7 @@ Cons:
 Check out the basic example [here](https://codesandbox.io/s/vigilant-http-iv8vy).
 
 It uses [fluent validation](https://github.com/AlexJPotter/fluentvalidation-ts)
-and gives you some the best practises to build forms.
+and gives you some the best practices to build forms.
  
 
 # Installation
