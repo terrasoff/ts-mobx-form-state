@@ -38,12 +38,5 @@
     "ts-jest": "25.2.1",
     "ts-loader": "^6.2.1",
     "typescript": "3.9.2"
-  },
-  "dependencies": {
-    "exports-loader": "0.7.0",
-    "module-alias": "^2.2.2"
-  },
-  "_moduleAliases": {
-    "@src": "src"
   }
 }
