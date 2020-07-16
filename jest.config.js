@@ -30,7 +30,6 @@ module.exports = {
     '^.+\\.(ts|js)?$': require.resolve('babel-jest'),
   },
   testMatch: [
-    '<rootD' +
-    'ir>/tests/**/*Test.ts?(x)'
+    '<rootDir>/tests/**/*Test.ts?(x)'
   ],
 };
