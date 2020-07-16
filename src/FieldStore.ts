@@ -1,5 +1,5 @@
 import { action, computed, observable, toJS } from 'mobx';
-import { FieldStoreOptions } from './FieldStoreOptions';
+import { FieldStoreOptions } from './Types';
 
 export class FieldStore<T> {
 

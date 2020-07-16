@@ -7,21 +7,21 @@ import {
   ValidationErrorsType
 } from './Types';
 import { FieldFactory } from './FieldFactory';
-import { FormCollectionStore } from './Stores';
+import { ArrayStore } from 'ts-mobx-basic-stores';
 
 export class FormCollection<T, TMeta = unknown> {
 
-  private readonly _items = new FormCollectionStore<FormFieldType<T, TMeta>>();
+  private readonly _items = new ArrayStore<FormFieldType<T, TMeta>>();
 
   private readonly _factory = new FieldFactory()
 
-  constructor(options: CollectionOptionsType<T> = { items: [] }) {
+  constructor(options: CollectionOptionsType<T, TMeta> = { items: [] }) {
     this.add = this.add.bind(this);
 
     options.items.map(this.add);
   }
 
-  public get list(): FormCollectionStore<FormFieldType<T, TMeta>> {
+  public get list(): ArrayStore<FormFieldType<T, TMeta>> {
     return this._items;
   }
 
@@ -37,11 +37,10 @@ export class FormCollection<T, TMeta = unknown> {
 
   @computed
   public get isTouched(): boolean {
-    if (this._items.isNotDefault) {
-      return true;
-    }
-
-    return this._items.items.some(x => x.isTouched);
+    return (
+      !this._items.isDefault
+      || this._items.items.some(x => x.isTouched)
+    );
   }
 
   public get items(): Array<FormFieldType<T, TMeta>> {
@@ -49,7 +48,7 @@ export class FormCollection<T, TMeta = unknown> {
   }
 
   public get(index: number): FormFieldType<T, TMeta> {
-    return this._items.getByIndex(index);
+    return this._items.at(index);
   }
 
   public get value(): Array<T> {
@@ -65,7 +64,7 @@ export class FormCollection<T, TMeta = unknown> {
     ;
 
     if (error.length < 1) {
-      return undefined;
+      return [];
     }
 
     return error as ValidationErrorsType<Array<T>>;
@@ -80,7 +79,7 @@ export class FormCollection<T, TMeta = unknown> {
     ;
 
     if (meta.length < 1) {
-      return undefined;
+      return [];
     }
 
     return meta;

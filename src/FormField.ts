@@ -1,14 +1,15 @@
-import { FieldStore, ValueBoxStore } from './Stores';
+import { FieldStore } from './FieldStore';
 import { computed } from 'mobx';
 import { FieldOptionsType, ScalarFieldValueType, ValidationErrorsType } from './Types';
+import { ValueStore } from 'ts-mobx-basic-stores';
 
 export class FormField<TMeta = unknown> {
 
   private readonly _value: FieldStore<ScalarFieldValueType>;
 
-  private readonly _error = new ValueBoxStore<string>();
+  private readonly _error = new ValueStore<string>();
 
-  private readonly _meta = new ValueBoxStore<TMeta>();
+  private readonly _meta = new ValueStore<TMeta>();
 
   @computed
   public get value(): ScalarFieldValueType {
@@ -37,7 +38,7 @@ export class FormField<TMeta = unknown> {
 
   @computed
   public get hasError(): boolean {
-    return this._error.isNotDefault;
+    return !this._error.isDefault;
   }
 
   public get field(): FieldStore<ScalarFieldValueType> {

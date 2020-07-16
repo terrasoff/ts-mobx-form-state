@@ -7,7 +7,8 @@ export { ValidationErrorsType, FieldsetValidationType, CollectionValidationType 
 export { ScalarFieldValueType } from './ScalarFieldValueType';
 export { GetCollectionItemType } from './GetCollectionItemType';
 export { AbstractCollectionOptionsType } from './AbstractCollectionOptionsType';
-export { GetFieldOptionsType, FieldsetOptionsType } from './FieldsetOptionsType';
+export { GetFieldOptionsType, FieldsetOptionsType, FieldsetFieldsOptionsType } from './FieldsetOptionsType';
 export { FieldOptionsType } from './FieldOptionsType';
 export { FormFieldsetType } from './FormFieldsetType';
 export { CollectionOptionsType } from './CollectionOptionsType';
+export { FieldStoreOptions } from './FieldStoreOptions';

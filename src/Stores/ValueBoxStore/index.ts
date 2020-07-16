@@ -1,1 +1,0 @@
-export { ValueBoxStore } from './ValueBoxStore';

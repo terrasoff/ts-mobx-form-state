@@ -1,19 +1,22 @@
 import { Form, ValidationErrorsType } from '@src';
 
 type FormType = {
-  age?: number;
-  name?: {
-    first?: string;
-    last?: string;
+  age: number | null;
+  name: {
+    first: string;
+    last: string;
   };
-  phones?: [
+  phones: [
     {
       number: string;
     }
   ];
 }
 
-function createForm(first: string, last?: string): Form<FormType> {
+function createForm(
+  first: string,
+  last: string = ''
+): Form<FormType> {
   return new Form<FormType>(
     {
       fields: {

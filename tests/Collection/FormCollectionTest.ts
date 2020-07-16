@@ -37,7 +37,7 @@ test('Change item', () => {
   const name2 = 'Steve';
   const collection = createCollection([name1]);
 
-  const field = collection.list.getByIndex(0);
+  const field = collection.list.at(0);
   expect(field.value).toEqual(name1);
   field.set(name2);
   expect(field.value).toEqual(name2);
@@ -48,7 +48,7 @@ test('Check dirty state', () => {
   const name2 = 'Form';
   const collection = createCollection([name1]);
 
-  const field = collection.list.getByIndex(0);
+  const field = collection.list.at(0);
   field.set(name2);
   expect(collection.isDirty).toBeTruthy();
   field.set(name1);
@@ -67,7 +67,7 @@ test('Check touched state by changing an item', () => {
   const name = 'Bill';
   const collection = createCollection([name]);
 
-  const field = collection.list.getByIndex(0);
+  const field = collection.list.at(0);
   field.set(name);
   expect(collection.isTouched).toBeTruthy();
 });
@@ -76,7 +76,7 @@ test('Check error state', () => {
   const name1 = 'Mobx';
   const error = 'Error';
   const collection = createCollection([name1]);
-  const field = collection.list.getByIndex(0);
+  const field = collection.list.at(0);
 
   expect(field.hasError).toBeFalsy();
   field.setError(error);

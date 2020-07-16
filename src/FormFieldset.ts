@@ -10,7 +10,7 @@ import { FieldFactory } from './FieldFactory';
 
 export class FormFieldset<T extends Object, TMeta = unknown> {
 
-  private readonly _fields: FormFieldsetType<T, TMeta> = {} as FormFieldsetType<T, TMeta>;
+  private readonly _fields: FormFieldsetType<T, TMeta> = {};
 
   private readonly _factory = new FieldFactory()
 

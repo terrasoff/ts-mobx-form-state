@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint src/ tests/ --ext ts --fix",
-    "test": "jest"
+    "test": "NODE_ENV=test jest --no-cache"
   },
   "author": "Konstantin Tarasov",
   "files": [
@@ -29,14 +29,20 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
     "@types/jest": "^25.2.3",
     "@typescript-eslint/eslint-plugin": "2.3.3",
     "@typescript-eslint/parser": "2.19.2",
+    "babel-jest": "^26.1.0",
     "eslint": "6.8.0",
-    "jest": "^25.2.1",
+    "jest": "^26.0.1",
     "mobx": "5.10.1",
-    "ts-jest": "25.2.1",
-    "ts-loader": "^6.2.1",
+    "ts-jest": "^26.1.2",
     "typescript": "3.9.2"
+  },
+  "dependencies": {
+    "ts-mobx-basic-stores": "^0.6.3"
   }
 }

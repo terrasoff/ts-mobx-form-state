@@ -1,25 +1,17 @@
-const { pathsToModuleNameMapper } = require('ts-jest/utils');
-const { compilerOptions } = require('./tsconfig');
-
-const paths = compilerOptions['paths'];
-
-let mapper = pathsToModuleNameMapper(paths);
-Object.keys(mapper).map(key => {
-  mapper[key] = mapper[key].replace(/^\./, '<rootDir>/src');
-});
+const { defaults: tsjPreset } = require('ts-jest/presets');
 
 module.exports = {
   preset: 'ts-jest',
   rootDir: './',
   testEnvironment: 'node',
   moduleNameMapper: {
-    ...mapper,
+    '@src$': '<rootDir>/src',
+    '@src/(.*)$': '<rootDir>/src/$1',
   },
   globals: {
     'ts-jest': {
-      babelConfig1: true,
       tsConfig: {
-        'target': 'ES2019',
+        'target': 'esnext',
       },
       moduleDirectories: [
         'node_modules',
@@ -27,13 +19,18 @@ module.exports = {
       ],
       moduleFileExtensions: [
         'ts',
-        'tsx',
         'js',
         'jsx'
       ]
-    }
+    },
+  },
+  transformIgnorePatterns: [],
+  transform: {
+    ...tsjPreset.transform,
+    '^.+\\.(ts|js)?$': require.resolve('babel-jest'),
   },
   testMatch: [
-    '<rootDir>/tests/**/*Test.(t|j)s?(x)'
+    '<rootD' +
+    'ir>/tests/**/*Test.ts?(x)'
   ],
 };
