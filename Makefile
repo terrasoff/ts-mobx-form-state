@@ -24,6 +24,9 @@ test:
 clean:
 	sudo rm -rf build
 
+publish:
+	@$(call publish)
+
 build: clean test
 	docker-compose exec node tsc
 

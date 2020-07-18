@@ -1,6 +1,6 @@
 # Description 
 
-Form state manager written with mobx :muscle: and typescript :hearts: which helps you to handle forms workflow.
+Form state manager written with mobx :muscle: and typescript :heart: which helps you to handle forms workflow.
 
 * Represents form state as a separate standalone store. Controlling the instance of the store you can manage your form from any point of your code.
  
