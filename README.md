@@ -2,7 +2,7 @@
 
 Form state manager written with mobx :muscle: and typescript :heart: which helps you to handle forms workflow.
 
-* Represents form state as a separate standalone store. Controlling the instance of the store you can manage your form from any point of your code.
+* Represents form state as a separate standalone store. Controlling the instance of the store you can manage the state from any point of your code.
  
 * Easy to test :wrench: as soon as it is a separate store. 
 
@@ -36,16 +36,9 @@ Let's review that example simplified it a bit.
 ## Create form model 
 
 ```ts
-import { PersonAddress } from './PersonAddress';
-import { PersonPhone } from './PersonPhone';
-
 export type Person = {
 
   name: string;
-
-  address: PersonAddress;
-
-  phones: Array<PersonPhone>;
 
 };
 ```
@@ -104,7 +97,6 @@ export class BasicFormStore {
   constructor() {
     this.submit = this.submit.bind(this);
     
-    // @ts-ignore
     this.form = new Form<Person, Meta>(
       {
         fields: {
@@ -144,12 +136,10 @@ export class BasicFormStore {
     console.log('form value', this.form.value);
   }
 }
-
 ```
 
-## Set up validator
+## Create validator
 
-Set up validation reaction is simple. You can use mobx reaction for it:
 ```ts
 import { Person } from '../Models';
 import { Validator } from 'fluentvalidation-ts';
@@ -170,10 +160,23 @@ export class BasicFormValidator extends Validator<Person> {
   }
 
 }
-
 ```
 
-Once form value is changed validator will be applied to the form.
+## Set up validator
+
+Once validator is created you can set up a reaction to the form's value changes.
+Each time the value is changed validator will be applied. 
+
+```ts
+reaction(
+  (): Person => this.form.value,
+  (): void => {
+    this.form.setError(
+      this._validator.validate(this.form.value)
+    );
+  },
+)
+```
 
 ## Add fields components
 
