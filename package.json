@@ -1,6 +1,6 @@
 {
   "name": "ts-mobx-form-state",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "The javascript Library written with mobx and typescript which helps you to handle a form state.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
