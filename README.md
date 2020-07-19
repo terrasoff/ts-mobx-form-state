@@ -30,8 +30,41 @@ and gives you some the best practices to build forms.
 
 # How to use
 
-In the example above we have code ideas how to build forms with the library. 
+In the example :point_up: we have code ideas how to build forms with the library. 
 Let's review that example simplified it a bit. 
+
+## Create form model 
+
+```ts
+import { PersonAddress } from './PersonAddress';
+import { PersonPhone } from './PersonPhone';
+
+export type Person = {
+
+  name: string;
+
+  address: PersonAddress;
+
+  phones: Array<PersonPhone>;
+
+};
+```
+
+The form in the example relies on this model to check types:
+
+```ts
+this.form = new Form<Person, Meta>(...);
+```
+
+And for the validation errors:
+
+```ts
+// Create validator based on Person model:
+// this._validationService.validate(model) method will return ValidationErrors<Person>.
+private _validator = this._validationService.create<Person>(...);
+```
+
+You can see the example in `BasicFormStore.ts` file :point_down:
 
 ## Create form store
 
