@@ -178,7 +178,7 @@ reaction(
 )
 ```
 
-## Add fields components
+## Add form components
 
 **Form components** is the third core idea.
 Form component is aware of specific form field store and know how to react on it.
