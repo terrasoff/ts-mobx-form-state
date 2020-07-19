@@ -14,9 +14,9 @@
     "build",
     "README.md"
   ],
-  "homepage": "https://bitbucket.org/terrasoff/ts-mobx-form-state",
+  "homepage": "https://github.com/terrasoff/ts-mobx-form-state",
   "bugs": {
-    "url": "https://bitbucket.org/terrasoff/ts-mobx-form-state"
+    "url": "https://github.com/terrasoff/ts-mobx-form-state/issues"
   },
   "keywords": [
     "mobx",
